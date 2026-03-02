@@ -1,6 +1,6 @@
 # AirPLAi Event Tagging API
 
-Backend API for tagging and querying moments in youth basketball games. Coaches, camera operators, or AI systems send tagged events (shots, fouls, rebounds, etc.) and the API stores them, maintains live box scores, and serves highlight-ready clips.
+Backend API for tagging and querying moments in basketball games. Coaches, camera operators, or AI systems send tagged events (shots, fouls, rebounds, etc.) and the API stores them, maintains live box scores, and serves highlight-ready clips.
 
 ## Quick Start
 
