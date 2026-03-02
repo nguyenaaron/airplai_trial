@@ -37,6 +37,16 @@ tests/
   test_api.py        Test suite covering CRUD, stats, validation, shot charts
 ```
 
+## Swagger UI
+
+All endpoints are documented in the interactive Swagger UI at `/docs`:
+
+![Swagger UI Overview](screenshots/swagger-overview.png)
+
+Expand any endpoint to see its schema, try it out, and inspect responses:
+
+![POST /games/{game_id}/events](screenshots/swagger-post-event.png)
+
 ## API Endpoints
 
 ### Games
@@ -77,6 +87,8 @@ tests/
 Below is a full walkthrough: create a game, register players, tag events, and query stats — all via `curl`.
 
 ### 1. Create a game
+
+![Create Game](screenshots/terminal-create-game.png)
 
 **Request:**
 ```bash
@@ -122,6 +134,8 @@ curl -X POST http://localhost:8000/players \
 ```
 
 ### 3. Tag events during a game
+
+![Tag Event](screenshots/terminal-tag-event.png)
 
 **LeBron drives for a 2-pointer (manual tag, full confidence):**
 ```bash
@@ -229,6 +243,8 @@ curl "http://localhost:8000/games/1/events?player_id=1"
 
 ### 5. View the game timeline
 
+![Timeline](screenshots/terminal-timeline.png)
+
 ```bash
 curl http://localhost:8000/games/1/timeline
 ```
@@ -236,6 +252,8 @@ curl http://localhost:8000/games/1/timeline
 Returns all events in chronological order (by period, then descending clock). Same schema as the events list.
 
 ### 6. Get highlight clips
+
+![Highlights](screenshots/terminal-highlights.png)
 
 **All camera-linked events (for clip generation service):**
 ```bash
@@ -255,6 +273,8 @@ curl "http://localhost:8000/players/1/highlights?min_confidence=0.8"
 Returns only events that have both `camera_id` and `video_timestamp_seconds` set — these are the handoff fields the clip generation service reads.
 
 ### 7. Player box score
+
+![Player Stats](screenshots/terminal-player-stats.png)
 
 ```bash
 curl http://localhost:8000/games/1/stats/players
@@ -335,6 +355,8 @@ curl http://localhost:8000/teams/lakers/season-stats
 
 ### 9. Player season stats with PLAi Score
 
+![Season Stats](screenshots/terminal-season-stats.png)
+
 **LeBron's season stats:**
 ```bash
 curl http://localhost:8000/players/1/season-stats
@@ -365,6 +387,8 @@ curl http://localhost:8000/players/1/season-stats
 The `plai_score` (0–100) measures a player's per-game contribution relative to their team — useful for ranking and scouting.
 
 ### 10. Shot chart data
+
+![Shot Chart](screenshots/terminal-shot-chart.png)
 
 **LeBron's shot chart:**
 ```bash
